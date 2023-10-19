@@ -8,14 +8,14 @@ import { useContext } from 'react'
 
 const Header = () => {
 
-   const{setsearchimages} = useContext(store)
+   const{searchimages,setsearchimages} = useContext(store)
 
     const [searchquery,setsearchquery] =useState('')
     const navigate = useNavigate()
     const handlekeypress = (e) => {
          if(e.key === 'Enter' && searchquery){
           navigate(`/search/${searchquery}`)
-          
+        
          } 
     }
   
@@ -30,7 +30,7 @@ const Header = () => {
       value={searchquery}
       onKeyPress={handlekeypress} onChange={(e) => setsearchquery(e.target.value)}
       />
-     
+   
       <p>Advertise</p>
       <p>Blog</p>
       <Link to="/user"><img src='https://images.unsplash.com/placeholder-avatars/extra-large.jpg?dpr=1&auto=format&fit=crop&w=32&h=32&q=60&crop=faces&bg=fff' className='account-circle' /></Link> 
