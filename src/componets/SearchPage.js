@@ -11,7 +11,7 @@ const SearchPage = () => {
     const[searchstring,setstring] = useState('')
 
     const{searchimages,setsearchimages} = useContext(store)
-    
+
    // const[searchimages,setsearchimages] = useState([])
     const[page,setpage]=useState(0) 
 
@@ -21,7 +21,9 @@ const SearchPage = () => {
         const url = await fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=HuGttIVCQ3IEKtFKsSLSyTeGHX8wsUQaYc0YdS6OyFY`)
         const jsonfile = await url.json()
         //console.log(jsonfile);
-        setsearchimages([...searchimages,...jsonfile?.results])
+
+        searchimages.push(...jsonfile?.results);
+        setsearchimages(searchimages)
         setstring(query)
        }
        catch(error){
@@ -33,7 +35,7 @@ const SearchPage = () => {
         setsearchimages([])
         searchApi()
         //console.log(searchimages);
-    },[searchstring])
+    },[query])
 
 
 

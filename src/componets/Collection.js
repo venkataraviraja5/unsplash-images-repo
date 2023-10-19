@@ -3,6 +3,7 @@ import store from './UserContext'
 import { useContext } from 'react'
 import "../componets/Viewpage.css"
 
+
 const Collection = () => {
 
     const{collectionimages} = useContext(store)
@@ -15,17 +16,16 @@ const Collection = () => {
    });
   return ( 
     <div>
-      <h1>collection</h1>
       {
             Object.keys(collectionimages).map((item,index) => (
-                <div className='collection-names'  key={index}>
+                <div className='collection-names-page'  key={index}>
                     <div>
                     <h1 className='collection-name'>{item} Collection</h1> 
                     </div>
                     <div className='collection-images'>
                     {
                         collectionimages[item].map((value) => (
-                            <img src={value} />
+                             <img src={value} />
                         ))
                      }
                     </div>
