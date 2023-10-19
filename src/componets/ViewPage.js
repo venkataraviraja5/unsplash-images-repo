@@ -97,9 +97,11 @@ const collectionimagesfunction = () =>{
 const [collectionName, setCollectionName] = useState('');
 
 const addkeys = () =>{
-      setcollectionimages({
-        ...collectionimages,[collectionName]:[]
-      })
+     if(collectionName.length > 0){
+        setcollectionimages({
+            ...collectionimages,[collectionName]:[]
+          })
+     }
 }
 const addDataToKeys = (item,index) => {
     const newarr = collectionimages[item].push(viewpage?.urls?.small)
@@ -107,7 +109,9 @@ const addDataToKeys = (item,index) => {
   setcollectionimagesstate(false)
 }
 
-
+useEffect(()=>{
+    setcollectionimagesstate(false)
+},[])
   return (
     <div>
        <div className='collectioncenter'>
@@ -116,9 +120,9 @@ const addDataToKeys = (item,index) => {
         <input type='text'  placeholder='Add New Collection'
           value={collectionName}
           onChange={(e) => setCollectionName(e.target.value)}
-        
+          
         />
-        <button onClick={addkeys}>Add</button>
+        <button onClick={addkeys}>Add</button> <button onClick={()=> setcollectionimagesstate(false)}>Back</button>
         {
             Object.keys(collectionimages).map((item,index) => (
                 <div className='collection-names'>
@@ -143,7 +147,8 @@ const addDataToKeys = (item,index) => {
           onClick={()=>addlikedimages(viewpage)}
         >&hearts;</p>
         }
-        <button onClick={collectionimagesfunction}>Add To collection</button>
+        <button onClick={collectionimagesfunction} className='collection-btn'
+        >Add To collection</button>
          </div>
 
        </div>
