@@ -35,7 +35,7 @@
     padding: 15px;
     border-radius: 20px;
     color: white;
-
+    border: 1px solid white;
 }
 .collectioncenter{
     display: flex;
@@ -49,8 +49,9 @@
 }
 .btn{
     height: 20px;
+    color: white;
     margin-top: 25px;
-    border: none;
+    border: 1px solid white;
     background-color: green;
 }
 .collection-images{
@@ -64,11 +65,7 @@
     align-items: center;
     color: green;
 }
-.collection-btn{
-    height: 50px;
-    margin-left: 20px;
-    margin-top: -20px;
-}
+
 .collection-names-page{
     display: flex;
     flex-direction: column;
