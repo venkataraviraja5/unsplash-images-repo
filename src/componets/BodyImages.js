@@ -9,6 +9,7 @@ const BodyImages = ({image}) => {
             top:'0px',
             behavior:'smooth'
         })
+
     }
     
   return (

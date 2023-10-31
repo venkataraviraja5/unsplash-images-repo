@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import Body from './Body'
 import store from './UserContext'
 import { useContext } from 'react'
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const ViewPage = () => {
 
@@ -103,6 +105,8 @@ const addkeys = () =>{
           })
      }
 }
+
+
 const addDataToKeys = (item,index) => {
     const newarr = collectionimages[item].push(viewpage?.urls?.small)
   // console.log(newarr);
@@ -112,6 +116,8 @@ const addDataToKeys = (item,index) => {
 useEffect(()=>{
     setcollectionimagesstate(false)
 },[])
+
+
   return (
     <div>
        <div className='collectioncenter'>
@@ -146,9 +152,12 @@ useEffect(()=>{
           >&hearts;</p> :  <p style={obj1}
           onClick={()=>addlikedimages(viewpage)}
         >&hearts;</p>
-        }
-        <button onClick={collectionimagesfunction} className='collection-btn'
-        >Add To collection</button>
+        } 
+   
+      <Button variant="contained" color="success" onClick={collectionimagesfunction} className='collectionbtn'>
+        Add To Collection
+      </Button>
+
          </div>
 
        </div>
